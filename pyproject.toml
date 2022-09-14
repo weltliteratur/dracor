@@ -7,7 +7,7 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "dracor"
-version = "0.0.1"
+version = "0.0.3"
 authors = [
     { name = "Robert Jäschke", email = "jaeschke@L3S.de" }
 ]

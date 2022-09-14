@@ -43,10 +43,10 @@ def play(corpus, play):
     url = DRACOR_API + "/corpora/" + corpus          # base URL
     url = url + "/play/" + play + "/tei"             # URL for play data
     with request.urlopen(url) as req:                # download data
-        ET.fromstring(req.read().decode())           # extract play data
+        return ET.fromstring(req.read().decode())    # extract play data
 
 
-def speakers(scene):
+def _speakers(scene):
     """Return all speakers from the given scene."""
     return set([sp.attrib["who"] for sp in scene.findall("tei:sp", NS)])
 
@@ -58,7 +58,7 @@ def scenes(play):
         if act.attrib["type"] == "act":
             for sceneid, scene in enumerate(act.findall("tei:div", NS)):            # loop scenes
                 if scene.attrib["type"] == "scene":
-                    scenes["a" + str(actid) + "_s" + str(sceneid)] = speakers(scene)
+                    scenes["a" + str(actid) + "_s" + str(sceneid)] = _speakers(scene)
     return scenes
 
 
