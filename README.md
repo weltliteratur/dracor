@@ -1,3 +1,5 @@
+[![PyPI version](https://badge.fury.io/py/dracor.svg)](https://badge.fury.io/py/dracor)
+
 # A simple Python library for DraCor
 
 This project provides a simple Python library to access the
@@ -12,7 +14,7 @@ pip install dracor
 ## Usage
 
 ``` python
-from dracor import dracor
+import dracor
 
 dracor.plays("shake")
 ```
