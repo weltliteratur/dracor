@@ -11,6 +11,8 @@
 # Author: rja
 #
 # Changes:
+# 2022-09-20 (rja)
+# - changed scene naming
 # 2022-09-14 (rja)
 # - initial version
 
@@ -58,7 +60,7 @@ def scenes(play):
         if act.attrib["type"] == "act":
             for sceneid, scene in enumerate(act.findall("tei:div", NS)):            # loop scenes
                 if scene.attrib["type"] == "scene":
-                    scenes["a" + str(actid) + "_s" + str(sceneid)] = _speakers(scene)
+                    scenes[str(actid) + "/" + str(sceneid)] = _speakers(scene)
     return scenes
 
 
